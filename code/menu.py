@@ -12,7 +12,7 @@ class Menu:
 
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/images/Bg_Menu.png')
+        self.surf = pygame.image.load('./asset/images/Bg_Menu.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
         self.menu_option = 0  # Índice do item selecionado
 
@@ -41,7 +41,7 @@ class Menu:
             enter_img = pygame.image.load('./asset/images/enter_w.png')
 
             # Calcular a largura total do conjunto (seta + enter + espaçamento)
-            total_width = arrow_img.get_width() + enter_img.get_width()  # Espaçamento de 10px entre elas
+            total_width = arrow_img.get_width() + enter_img.get_width()  # Espaçamento de 10px entre os elementos
             start_x = (WIN_WIDTH - total_width) / 2  # Centraliza o conjunto de imagens
 
 

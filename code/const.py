@@ -10,9 +10,9 @@ C_BLACK = (0, 0, 0)
 #E - velocidade das entidades
 ENTITY_SPEED = {
     'bg_1': 0,
-    'bg_2': 1,
-    'bg_3': 2,
-    'bg_4': 3,
+    'bg_2': 2,
+    'bg_3': 3,
+    'bg_4': 5,
     'bg_5': 4,
 
 
