@@ -1,5 +1,9 @@
+import random
+
 from code.background import Background
-from code.const import WIN_WIDTH
+from code.const import WIN_WIDTH, WIN_HEIGHT
+from code.enemy import Enemy
+from code.player import Player
 
 
 class EntityFactory:
@@ -12,3 +16,16 @@ class EntityFactory:
                     list_bg.append(Background(f'bg_{i}', (0, 0)))
                     list_bg.append(Background(f'bg_{i}', (WIN_WIDTH, 0)))
                 return list_bg  # Retorna a lista completa após o loop
+
+            case 'astronaut_1':
+                return Player('astronaut_1', (10, WIN_HEIGHT / 2))
+
+            case 'enemy_1':
+                return Enemy('enemy_1', (random.randint(40, WIN_WIDTH - 40), -50))  # Inimigo começa de cima
+
+            case 'enemy_2':
+                return Enemy('enemy_2', (random.randint(40, WIN_WIDTH - 40), -50))  # Inimigo começa de cima
+
+            case 'enemy_5':
+                return Enemy('enemy_5', (random.randint(20, WIN_WIDTH - 40), -50))  # Inimigo começa de cima
+

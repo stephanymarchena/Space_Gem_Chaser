@@ -1,4 +1,6 @@
-from code.const import WIN_WIDTH, ENTITY_SPEED
+import pygame
+
+from code.const import WIN_WIDTH, ENTITY_SPEED, WIN_HEIGHT
 from code.entity import Entity
 
 
