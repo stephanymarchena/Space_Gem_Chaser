@@ -19,5 +19,5 @@ class Entity(ABC):
         #self.health = ENTITY_HEALTH[self.name]
 
     @abstractmethod
-    def move(self, entity_list: list):
+    def move(self, entity_list: list): #verificar o parâmetro entity_list
         pass
