@@ -68,8 +68,8 @@ class Menu:
             pygame.display.flip()
 
             for event in pygame.event.get():
-                if event.type == QUIT:
-                    pygame.quit()
+                if event.type == pygame.QUIT:
+                    pygame.quit()  # Close Window
                     quit()
 
                 if event.type == KEYDOWN:  # Se alguma tecla for pressionada
@@ -77,7 +77,11 @@ class Menu:
                         self.menu_option = (self.menu_option + 1) % len(MENU_OPTION)  # Cicla para baixo
                     elif event.key == K_UP:
                         self.menu_option = (self.menu_option - 1) % len(MENU_OPTION)  # Cicla para cima
-                    elif event.key == K_RETURN:  # Tecla ENTER
+
+                    elif event.key == K_RETURN:  # Se pressionar Enter
+                        if MENU_OPTION[self.menu_option] == "EXIT":
+                            pygame.quit()
+                            exit()
                         return MENU_OPTION[self.menu_option]
 
                 elif event.type == MOUSEMOTION:
@@ -90,7 +94,10 @@ class Menu:
                     for i, option in enumerate(MENU_OPTION):
                         text_rect = self.get_text_rect("./asset/fonts/Fredoka-SemiBold.ttf", 36, option, (400, 300 + 50 * i))
                         if text_rect.collidepoint(event.pos):  # Se o jogador clicar em uma opção
-                            return MENU_OPTION[i]
+                            if option == "EXIT":  # Verifica se a opção é "EXIT"
+                                pygame.quit()
+                                exit()
+                            return option  # Retorna a opção selecionada
 
 
     # Função para desenhar texto na tela

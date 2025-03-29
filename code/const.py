@@ -19,17 +19,16 @@ ENTITY_SPEED = {
     'astronaut_1': 4,
     'enemy_1': 2,
     'enemy_2': 1,
-    'enemy_3': 3,
-    'enemy_4': 2,
     'enemy_5': 3,
-    'enemy_6': 4,
-    'enemy_7': 4,
-    'enemy_8': 4,
-    'enemy_9': 4,
+    'gem_1': 1,
+    'gem_2': 3,
+    'gem_3': 2,
+    'gem_4': 4,
 }
 
 # E - Gerando os inimigos
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_GEM = pygame.USEREVENT + 2
 
 
 # M - Configuração do menu
@@ -44,8 +43,9 @@ CONTROL_PLAYER_DOWN = { 'astronaut_1': pygame.K_DOWN}
 CONTROL_PLAYER_RIGHT = { 'astronaut_1': pygame.K_RIGHT}
 CONTROL_PLAYER_LEFT = {'astronaut_1': pygame.K_LEFT}
 
-
-SPAWN_TIME = 5000
+#S
+SPAWN_TIME = 4000
+SPAWN_TIME_GEM = 3000
 
 # W - Configurações da tela
 WIN_WIDTH = 800

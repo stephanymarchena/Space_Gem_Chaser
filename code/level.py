@@ -5,7 +5,7 @@ import pygame.display
 from pygame.font import Font
 
 from code.EntityFactory import EntityFactory
-from code.const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME
+from code.const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME, EVENT_GEM, SPAWN_TIME_GEM
 from code.entity import Entity
 
 
@@ -21,6 +21,7 @@ class Level:
         self.timeout = 2000  # 20 segundos
 
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+        pygame.time.set_timer(EVENT_GEM, SPAWN_TIME_GEM)
 
     def run(self):
         pygame.mixer_music.load('./asset/music/PhantomFromSpace.mp3')
@@ -40,6 +41,10 @@ class Level:
 
                 if event.type ==  EVENT_ENEMY:
                     choice = random.choice(('enemy_1', 'enemy_2', 'enemy_5'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
+
+                if event.type == EVENT_GEM:
+                    choice = random.choice(('gem_1', 'gem_2', 'gem_3', 'gem_4'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
             # Exibindo HUD na tela.
