@@ -9,7 +9,29 @@ C_CYAN_2 = (191, 255, 229)
 C_BLACK = (0, 0, 0)
 
 
+
+
+
+
 #E - velocidade das entidades
+
+ENTITY_HEALTH = {
+    'bg_1': 0,
+    'bg_2': 0,
+    'bg_3': 0,
+    'bg_4': 0,
+    'bg_5': 0,
+    'astronaut_1': 300,
+    'enemy_1': 50,
+    'enemy_1Damage': 1,
+    'enemy_2': 60,
+    'enemy_2Damage': 1,
+    'gem_1': 1,
+    'gem_2': 1,
+    'gem_3': 1,
+}
+
+
 ENTITY_SPEED = {
     'bg_1': 0,
     'bg_2': 2,
@@ -31,6 +53,8 @@ ENTITY_SPEED = {
 # E - Gerando os inimigos
 EVENT_ENEMY = pygame.USEREVENT + 1
 
+EVENT_GEMS = pygame.USEREVENT + 2
+
 
 # M - Configuração do menu
 MENU_OPTION = ('START GAME',
@@ -44,8 +68,9 @@ CONTROL_PLAYER_DOWN = { 'astronaut_1': pygame.K_DOWN}
 CONTROL_PLAYER_RIGHT = { 'astronaut_1': pygame.K_RIGHT}
 CONTROL_PLAYER_LEFT = {'astronaut_1': pygame.K_LEFT}
 
-
+# S - SPAWN dos objetos
 SPAWN_TIME = 5000
+SPAWN_TIME_GEMS = 2000
 
 # W - Configurações da tela
 WIN_WIDTH = 800

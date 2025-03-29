@@ -5,7 +5,8 @@ import pygame.display
 from pygame.font import Font
 
 from code.EntityFactory import EntityFactory
-from code.const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME
+from code.EntityMediator import EntityMediator
+from code.const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME, EVENT_GEMS, SPAWN_TIME_GEMS, WIN_WIDTH
 from code.entity import Entity
 
 
@@ -21,6 +22,7 @@ class Level:
         self.timeout = 2000  # 20 segundos
 
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+        pygame.time.set_timer(EVENT_GEMS, SPAWN_TIME_GEMS)
 
     def run(self):
         pygame.mixer_music.load('./asset/music/PhantomFromSpace.mp3')
@@ -42,6 +44,16 @@ class Level:
                     choice = random.choice(('enemy_1', 'enemy_2', 'enemy_5'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
+                if event.type == EVENT_GEMS:
+                    gem_name = f'gem_{random.randint(1, 3)}'  # Escolhe uma gema aleatória
+                    gem = EntityFactory.get_entity(gem_name)
+
+                    if gem:
+                        # Ajusta a posição da gema para evitar sobreposição com outras entidades
+                        gem.rect.centerx = random.randint(40, WIN_WIDTH - 40)
+                        gem.rect.top = -50  # Inicia no topo da tela
+                        self.entity_list.append(gem)  # Adiciona a gema à lista
+
             # Exibindo HUD na tela.
             self.level_text("./asset/fonts/Fredoka-SemiBold.ttf", 14, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s',
                             C_WHITE, (10, 5))
@@ -51,6 +63,8 @@ class Level:
                             (10, WIN_HEIGHT - 20))
 
             pygame.display.flip()
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            #EntityMediator.verify_health(entity_list=self.entity_list)
 
     def level_text(self, font_path: str, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: pygame.font.Font = pygame.font.Font(font_path, text_size)  # Carrega a fonte de alguma pasta
