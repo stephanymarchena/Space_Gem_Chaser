@@ -7,10 +7,8 @@ class Gem(Entity):
         super().__init__(name, position)
         self.speed_y = 2  # Velocidade de queda da gema
 
-    def move(self, entity_list: list):
+    def move(self):
         self.rect.top += self.speed_y
-        if self.rect.top > WIN_HEIGHT:
-            self.kill(entity_list)
 
     def kill(self, entity_list: list):
         """Remove a gema da lista de entidades."""

@@ -1,7 +1,13 @@
+import random
+
+from code.EntityFactory import EntityFactory
 from code.const import WIN_HEIGHT
 from code.enemy import Enemy
 from code.entity import Entity
 from code.gem import Gem
+from code.level import Level
+from code.player import Player
+
 
 class EntityMediator:
 
@@ -26,3 +32,4 @@ class EntityMediator:
         for ent in entity_list[:]:  # Evita erro de modificação da lista
             if ent.health <= 0:
                 entity_list.remove(ent)
+
