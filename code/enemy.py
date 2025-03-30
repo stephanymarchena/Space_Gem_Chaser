@@ -10,15 +10,6 @@ class Enemy(Entity):
     def move(self):
         # Movimento horizontal
         self.rect.centerx -= ENTITY_SPEED[self.name]
-
         # Movimento vertical (queda)
         self.rect.top += self.speed_y
 
-        # Se o inimigo sair da tela pela direita, reposiciona-o na tela
-        if self.rect.right <= 0:
-            self.rect.left = WIN_WIDTH
-
-        # Se o inimigo ultrapassar o fundo da tela, reposiciona-o no topo
-        if self.rect.top > WIN_HEIGHT:
-            self.rect.top = -50  # Volta para o topo
-            self.rect.centerx = random.randint(40, WIN_WIDTH - 40)  # Randomiza a posição X novamente

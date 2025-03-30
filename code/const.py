@@ -1,6 +1,5 @@
-# Define as constantes do jogo
+ # Constantes do jogo
 import pygame
-from pygame import CONTROLLER_BUTTON_Y
 
 # C - Cores do Jogo
 C_WHITE = (255, 255, 255)
@@ -10,6 +9,30 @@ C_BLACK = (0, 0, 0)
 
 
 #E - velocidade das entidades
+
+ENTITY_HEALTH = {
+    'bg_1': 999,
+    'bg_2': 999,
+    'bg_3': 999,
+    'bg_4': 999,
+    'bg_5': 999,
+    'astronaut_1': 300,
+    'Player1Shot': 1,
+    'enemy_1': 50,
+    'enemy_1_damage': 1,
+    'enemy_2': 60,
+    'enemy_2_damage': 1,
+    'enemy_5': 40,
+    'enemy_5_damage': 1,
+    'gem_1': 1,
+    'gem_2': 1,
+    'gem_3': 1,
+    'gem_4': 1,
+
+}
+
+
+
 ENTITY_SPEED = {
     'bg_1': 0,
     'bg_2': 2,
@@ -44,7 +67,7 @@ CONTROL_PLAYER_RIGHT = { 'astronaut_1': pygame.K_RIGHT}
 CONTROL_PLAYER_LEFT = {'astronaut_1': pygame.K_LEFT}
 
 #S
-SPAWN_TIME = 4000
+SPAWN_TIME = 2000
 SPAWN_TIME_GEM = 3000
 
 # W - Configurações da tela

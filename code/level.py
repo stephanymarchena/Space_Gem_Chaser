@@ -5,6 +5,7 @@ import pygame.display
 from pygame.font import Font
 
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 from code.const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME, EVENT_GEM, SPAWN_TIME_GEM
 from code.entity import Entity
 
@@ -54,8 +55,13 @@ class Level:
                             (10, WIN_HEIGHT - 35))
             self.level_text("./asset/fonts/Fredoka-SemiBold.ttf", 14, f'entidades: {len(self.entity_list)}', C_WHITE,
                             (10, WIN_HEIGHT - 20))
-
             pygame.display.flip()
+
+
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
+
 
     def level_text(self, font_path: str, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: pygame.font.Font = pygame.font.Font(font_path, text_size)  # Carrega a fonte de alguma pasta
