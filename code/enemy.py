@@ -13,3 +13,6 @@ class Enemy(Entity):
         # Movimento vertical (queda)
         self.rect.top += self.speed_y
 
+    def take_damage(self):
+        """Reduz a vida do inimigo para 0 quando ele colide com o player."""
+        self.health = 0  # O inimigo desaparece imediatamente
