@@ -6,6 +6,8 @@ C_WHITE = (255, 255, 255)
 C_CYAN = (8, 225, 138)
 C_CYAN_2 = (191, 255, 229)
 C_BLACK = (0, 0, 0)
+C_RED = (255, 0, 0)
+C_GREEN = (0, 255, 0)
 
 
 #E - velocidade das entidades
@@ -49,7 +51,7 @@ ENTITY_SPEED = {
     'gem_4': 4,
 }
 
-# E - Gerando os inimigos
+# Gerando os inimigos
 EVENT_ENEMY = pygame.USEREVENT + 1
 EVENT_GEM = pygame.USEREVENT + 2
 
@@ -59,6 +61,8 @@ MENU_OPTION = ('START GAME',
                'SCORE',
                'EXIT')
 
+TEXT_WIDTH = 150
+
 # P - Controles do astronauta
 CONTROL_PLAYER_UP ={ 'astronaut_1': pygame.K_UP,}
 CONTROL_PLAYER_DOWN = { 'astronaut_1': pygame.K_DOWN}
@@ -66,9 +70,14 @@ CONTROL_PLAYER_DOWN = { 'astronaut_1': pygame.K_DOWN}
 CONTROL_PLAYER_RIGHT = { 'astronaut_1': pygame.K_RIGHT}
 CONTROL_PLAYER_LEFT = {'astronaut_1': pygame.K_LEFT}
 
+# Espaçamento do HUD
+PADDING = 20
+
 #S
 SPAWN_TIME = 2000
 SPAWN_TIME_GEM = 3000
+
+SPACING = 120  # Distância entre os textos superiores
 
 # W - Configurações da tela
 WIN_WIDTH = 800

@@ -6,6 +6,7 @@ from pygame.font import Font
 from pygame.locals import QUIT, KEYDOWN, K_DOWN, K_UP, K_RETURN, MOUSEMOTION, MOUSEBUTTONDOWN
 
 from code.const import C_WHITE, WIN_WIDTH, C_CYAN, MENU_OPTION, C_CYAN_2, WIN_HEIGHT
+from code.score import Score
 
 
 class Menu:
@@ -82,6 +83,11 @@ class Menu:
                         if MENU_OPTION[self.menu_option] == "EXIT":
                             pygame.quit()
                             exit()
+
+                        elif MENU_OPTION[self.menu_option] == "SCORE":
+                            score_screen = Score(self.window)
+                            score_screen.show_score()
+                            continue  # Volta ao menu sem reiniciar o jogo
                         return MENU_OPTION[self.menu_option]
 
                 elif event.type == MOUSEMOTION:
@@ -97,6 +103,10 @@ class Menu:
                             if option == "EXIT":  # Verifica se a opção é "EXIT"
                                 pygame.quit()
                                 exit()
+                            elif option == "SCORE":
+                                score_screen = Score(self.window)
+                                score_screen.show_score()
+                                continue  # Volta ao menu sem reiniciar o jogo
                             return option  # Retorna a opção selecionada
 
 
