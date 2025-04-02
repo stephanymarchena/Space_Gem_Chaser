@@ -82,7 +82,7 @@ class Level:
             EntityMediator.verify_health(entity_list=self.entity_list)
 
         # Calcula a pontuação final e retorna ao menu
-        self.score = self.calculate_score(elapsed_time)
+
         return 'game_over'
 
     def handle_events(self):
@@ -163,10 +163,6 @@ class Level:
         text_surf: pygame.Surface = text_font.render(text, True, text_color).convert_alpha()
         text_rect: pygame.Rect = text_surf.get_rect(center=text_pos)
         self.window.blit(source=text_surf, dest=text_rect)
-
-    def calculate_score(self, elapsed_time):
-        """Calcula a pontuação final do jogador com base no tempo sobrevivido."""
-        return int(elapsed_time * 10)  # Exemplo: 10 pontos por segundo
 
     def get_score(self):
         """Retorna a pontuação final do jogador."""

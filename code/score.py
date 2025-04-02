@@ -2,7 +2,8 @@ import pygame
 from pygame import Surface
 from datetime import datetime
 from code.DBProxy import DBProxy
-from code.const import WIN_WIDTH, WIN_HEIGHT
+from code.const import WIN_WIDTH, WIN_HEIGHT, C_WHITE
+
 
 class Score:
     def __init__(self, window: Surface):
@@ -22,8 +23,8 @@ class Score:
 
         while True:
             self.window.blit(self.surf, self.rect)
-            self.score_text(48, 'FIM DO JOGO!!', (255, 255, 0), (WIN_WIDTH / 2, WIN_HEIGHT / 4))
-            self.score_text(20, 'Enter your name (4 characters, A-Z/0-9):', (255, 255, 255),
+            self.score_text(48, 'YOU WIN!!', (255, 255, 0), (WIN_WIDTH / 2, WIN_HEIGHT / 4))
+            self.score_text(20, 'Enter your name (4 characters, A-Z/0-9):', C_WHITE,
                             (WIN_WIDTH / 2, WIN_HEIGHT / 2))
 
             for event in pygame.event.get():
@@ -76,8 +77,8 @@ class Score:
                     waiting = False
 
     def score_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
-        """Exibe um texto na tela."""
-        font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
+        """Exibe um texto na tela usando a fonte personalizada."""
+        font = pygame.font.Font("./asset/fonts/Fredoka-SemiBold.ttf", text_size)  # Usa a fonte correta
         text_surf = font.render(text, True, text_color).convert_alpha()
         text_rect = text_surf.get_rect(center=text_center_pos)
         self.window.blit(text_surf, text_rect)

@@ -24,12 +24,11 @@ class Game:
                 level_return = level_game.run()
 
                 if level_return == 'game_over':  # Quando o jogo acabar
-                    # Agora você pode pegar a pontuação do metodo get_score()
                     player_score = level_game.get_score()  # Pega a pontuação do metodo get_score()
                     score = Score(self.window)  # Cria uma instância de Score
                     score.save(player_score)  # Passa a pontuação como argumento para salvar
                     score.show_score()  # Exibe a tela de pontuação
 
-            elif menu_return == MENU_OPTION[2]:  # Exemplo: Ir para a tela de pontuação diretamente
+            elif menu_return == MENU_OPTION[2]:  # Ir para a tela de pontuação diretamente
                 score = Score(self.window)
                 score.show_score()  # Exibe a tela de pontuação

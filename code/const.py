@@ -61,7 +61,6 @@ MENU_OPTION = ('START GAME',
                'SCORE',
                'EXIT')
 
-TEXT_WIDTH = 150
 
 # P - Controles do astronauta
 CONTROL_PLAYER_UP ={ 'astronaut_1': pygame.K_UP,}
@@ -74,8 +73,8 @@ CONTROL_PLAYER_LEFT = {'astronaut_1': pygame.K_LEFT}
 PADDING = 20
 
 #S
-SPAWN_TIME = 2000
-SPAWN_TIME_GEM = 3000
+SPAWN_TIME = 1000
+SPAWN_TIME_GEM = 2000
 
 SPACING = 120  # Distância entre os textos superiores
 
